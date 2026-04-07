@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPPORTPLUS - Coming Soon</title>
+    <meta name="description" content="Empowering Businesses Through Technology & Intelligence - Coming Soon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Background Effects */
+        .background-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .vertical-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.1) 50%, transparent 100%),
+                linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.08) 50%, transparent 100%);
+            background-size: 200px 100%, 150px 100%;
+            animation: moveLines 15s linear infinite;
+        }
+
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #3b82f6;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes moveLines {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+        }
+
+        @keyframes characterFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+        }
+
+        .logo img {
+            width: 200px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)) 
+                    drop-shadow(0 0 40px rgba(139, 92, 246, 0.6));
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            z-index: 15;
+        }
+
+        .coming-soon {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+            line-height: 0.9;
+        }
+
+        .coming {
+            color: #fff;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .soon {
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 50%, #3b82f6 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            display: block;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 50px;
+            max-width: 600px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Button */
+        .notify-btn {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 15;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .notify-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .notify-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .notify-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Character */
+        .character {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            animation: characterFloat 4s ease-in-out infinite;
+        }
+
+        .character img {
+            width: 70vw;
+            max-width: 600px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6));
+        }
+
+        /* Power Background */
+        .power-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0.2;
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        .power-bg img {
+            width: 2500px;
+            height: 2500px;
+            max-width: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .coming-soon {
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .logo img {
+                width: 150px;
+                height: auto;
+            }
+            
+            .character img {
+                width: 80vw;
+            }
+            
+            .main-content {
+                margin-top: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon {
+                font-size: 2.5rem;
+            }
+            
+            .notify-btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .logo img {
+                width: 120px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="vertical-lines"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Power Background -->
+    <div class="power-bg">
+        <img src="./powertext.png" alt="Power Background" onerror="this.style.display='none'">
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="./logo.png" alt="SUPPORTPLUS Logo" onerror="this.style.display='none'">
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="coming-soon">
+                <span class="coming">COMING</span>
+                <span class="soon">SOON</span>
+            </h1>
+            
+            <p class="tagline">
+                Empowering Businesses Through Technology & Intelligence
+            </p>
+            
+            <button class="notify-btn" onclick="notifyMe()">
+                Notify Me
+            </button>
+    </div>
+    
+        <!-- Character -->
+        <div class="character">
+            <img src="./User.png" alt="Character" onerror="this.style.display='none'">
+        </div>
+    </div>
+    
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 60;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.opacity = Math.random() * 0.8 + 0.2;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Notify Me function
+        function notifyMe() {
+            alert('Thank you for your interest! We will notify you when SUPPORTPLUS is ready.');
+        }
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+        });
+
+        // Add some interactive effects
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.3;
+                const xOffset = (x - 0.5) * speed * 30;
+                const yOffset = (y - 0.5) * speed * 30;
+                
+                particle.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
+</body>
+</html>

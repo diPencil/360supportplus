@@ -1,0 +1,12 @@
+1:"$Sreact.fragment"
+2:I[76519,["/_next/static/chunks/d6a45b8ad5a5e7ba.js"],"ViewportBoundary"]
+4:I[76519,["/_next/static/chunks/d6a45b8ad5a5e7ba.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+7:I[14015,["/_next/static/chunks/d6a45b8ad5a5e7ba.js"],"IconMark"]
+:HL["/_next/static/chunks/8a80e7184ad3a13f.css","style"]
+:HL["/_next/static/chunks/7a5b17bd8dbf02d6.css","style"]
+:HL["/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"buildId":"eXC-RFO1Y-9JqjDJDq2lU","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"head":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isHeadPartial":false,"staleTime":300}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"SUPPORTPLUS - Coming Soon"}],["$","meta","1",{"name":"description","content":"Empowering Businesses Through Technology & Intelligence - Coming Soon"}],["$","link","2",{"rel":"manifest","href":"/manifest.json"}],["$","meta","3",{"name":"generator","content":"Next.js"}],["$","link","4",{"rel":"shortcut icon","href":"/favicon.ico"}],["$","link","5",{"rel":"icon","href":"/favicon.ico","sizes":"any"}],["$","link","6",{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","link","7",{"rel":"apple-touch-icon","href":"/favicon.png"}],["$","$L7","8",{}]]

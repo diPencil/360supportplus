@@ -1,0 +1,378 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Font helpers (loaded via next/font/local variables) */
+.font-montserrat { font-family: var(--font-montserrat), system-ui, sans-serif; }
+.font-nos { font-family: var(--font-nos), var(--font-montserrat), system-ui, sans-serif; }
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette for cyberpunk neon aesthetic */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.5 0.2 264);
+  --primary-foreground: oklch(0.95 0 0);
+  --secondary: oklch(0.4 0.15 280);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.55 0.25 264);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.5 0.2 264);
+  --chart-1: oklch(0.55 0.25 264);
+  --chart-2: oklch(0.5 0.2 280);
+  --chart-3: oklch(0.45 0.18 300);
+  --chart-4: oklch(0.6 0.22 250);
+  --chart-5: oklch(0.52 0.24 270);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.5 0.2 264);
+  --sidebar-primary-foreground: oklch(0.95 0 0);
+  --sidebar-accent: oklch(0.55 0.25 264);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.2 0 0);
+  --sidebar-ring: oklch(0.5 0.2 264);
+
+  /* Added neon color variables */
+  --neon-blue: #3b82f6;
+  --neon-purple: #8b5cf6;
+  --neon-cyan: #06b6d4;
+}
+
+.dark {
+  /* Dark mode uses same cyberpunk palette */
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.5 0.2 264);
+  --primary-foreground: oklch(0.95 0 0);
+  --secondary: oklch(0.4 0.15 280);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.25 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.55 0.25 264);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.15 0 0);
+  --ring: oklch(0.5 0.2 264);
+  --chart-1: oklch(0.55 0.25 264);
+  --chart-2: oklch(0.5 0.2 280);
+  --chart-3: oklch(0.45 0.18 300);
+  --chart-4: oklch(0.6 0.22 250);
+  --chart-5: oklch(0.52 0.24 270);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.5 0.2 264);
+  --sidebar-primary-foreground: oklch(0.95 0 0);
+  --sidebar-accent: oklch(0.55 0.25 264);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.2 0 0);
+  --sidebar-ring: oklch(0.5 0.2 264);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-cyan: var(--neon-cyan);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added neon glow effects and animations */
+@layer utilities {
+  .neon-blue {
+    @apply text-[#3b82f6];
+  }
+
+  .neon-purple {
+    @apply text-[#8b5cf6];
+  }
+
+  .neon-cyan {
+    @apply text-[#06b6d4];
+  }
+
+  .glow-blue {
+    @apply shadow-lg shadow-blue-500/50;
+  }
+
+  .glow-purple {
+    @apply shadow-lg shadow-purple-500/50;
+  }
+
+  .neon-border {
+    @apply border-blue-500 shadow-lg shadow-blue-500/50;
+  }
+
+  /* Custom breathing animation for character */
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .animate-breathe {
+    animation: breathe 3s ease-in-out infinite;
+  }
+
+  /* Custom pulse glow animation */
+  @keyframes pulse-glow {
+    0%, 100% { 
+      opacity: 0.1;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 0.3;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Glow animation for background */
+  @keyframes glow {
+    0% { 
+      opacity: 0.02;
+      transform: scale(1);
+    }
+    100% { 
+      opacity: 0.08;
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 3s infinite alternate;
+  }
+
+  /* Character floating animation */
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% { 
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
+  /* Service panels floating animation */
+  @keyframes float-panels {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(1deg);
+    }
+  }
+
+  /* Glow pulse animation for panels */
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Alternative floating animation */
+  @keyframes float-alt {
+    0%, 100% { 
+      transform: translateY(0px) scale(1) !important;
+    }
+    50% { 
+      transform: translateY(-20px) scale(1.02) !important;
+    }
+  }
+
+  /* Simple bounce animation */
+  @keyframes bounce-simple {
+    0%, 100% { 
+      transform: translateY(0px) !important;
+    }
+    50% { 
+      transform: translateY(-15px) !important;
+    }
+  }
+
+  /* Strong bounce animation */
+  @keyframes bounce-strong {
+    0%, 100% { 
+      transform: translateY(0px) scale(1) !important;
+    }
+    50% { 
+      transform: translateY(-20px) scale(1.05) !important;
+    }
+  }
+}
+
+/* Chat Widget Styles */
+.chat-widget {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.chat-message {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chat-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+/* Notification Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-slide {
+  animation: slideDown 0.5s ease-out;
+}
+
+/* Typing Animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor {
+  animation: blink 1s infinite;
+}
+
+
+/* Disable mouse wheel zoom (Ctrl + scroll) */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent zoom on double tap */
+body {
+  touch-action: manipulation;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Disable zoom on input focus */
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+/* Global animated neon button style (applies to UI Button component) */
+.sp-button { --h-button:48px; --w-button:102px; --round:0.75rem; cursor:pointer; position:relative; display:inline-flex; align-items:center; justify-content:center; overflow:hidden; transition:all .25s ease; background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(223,113,255,.8) 0%, rgba(223,113,255,0) 100%), linear-gradient(0deg, #7a5af8, #7a5af8); border-radius: var(--round); border:none; outline:none; padding:12px 18px; }
+.sp-button::before, .sp-button::after { content:""; position:absolute; inset:var(--space); transition: all .5s ease-in-out; border-radius: calc(var(--round) - var(--space)); z-index:0; }
+.sp-button::before { --space:1px; background: linear-gradient(177.95deg, rgba(255,255,255,.19) 0%, rgba(255,255,255,0) 100%); }
+.sp-button::after { --space:2px; background: radial-gradient(65.28% 65.28% at 50% 100%, rgba(223,113,255,.8) 0%, rgba(223,113,255,0) 100%), linear-gradient(0deg, #7a5af8, #7a5af8); }
+.sp-button:active { transform: scale(.95); }
+.sp-button__fold { z-index:1; position:absolute; top:0; right:0; height:1rem; width:1rem; display:inline-block; transition: all .5s ease-in-out; background: radial-gradient(100% 75% at 55%, rgba(223,113,255,.8) 0%, rgba(223,113,255,0) 100%); box-shadow:0 0 3px black; border-bottom-left-radius:.5rem; border-top-right-radius: var(--round); }
+.sp-button__fold::after { content:""; position:absolute; top:0; right:0; width:150%; height:150%; transform: rotate(45deg) translateX(0%) translateY(-18px); background-color:#e8e8e8; pointer-events:none; }
+.sp-button:hover .sp-button__fold { margin-top:-1rem; margin-right:-1rem; }
+.sp-button__points { overflow:hidden; width:100%; height:100%; pointer-events:none; position:absolute; z-index:1; }
+.sp-button__point { bottom:-10px; position:absolute; animation: floating-points infinite ease-in-out; pointer-events:none; width:2px; height:2px; background-color:#fff; border-radius:9999px; }
+@keyframes floating-points { 0% { transform: translateY(0);} 85% { opacity:0;} 100% { transform: translateY(-55px); opacity:0; } }
+.sp-button__points .sp-button__point:nth-child(1){ left:10%; opacity:1; animation-duration:2.35s; animation-delay:.2s; }
+.sp-button__points .sp-button__point:nth-child(2){ left:30%; opacity:.7; animation-duration:2.5s; animation-delay:.5s; }
+.sp-button__points .sp-button__point:nth-child(3){ left:25%; opacity:.8; animation-duration:2.2s; animation-delay:.1s; }
+.sp-button__points .sp-button__point:nth-child(4){ left:44%; opacity:.6; animation-duration:2.05s; }
+.sp-button__points .sp-button__point:nth-child(5){ left:50%; opacity:1; animation-duration:1.9s; }
+.sp-button__points .sp-button__point:nth-child(6){ left:75%; opacity:.5; animation-duration:1.5s; animation-delay:1.5s; }
+.sp-button__points .sp-button__point:nth-child(7){ left:88%; opacity:.9; animation-duration:2.2s; animation-delay:.2s; }
+.sp-button__points .sp-button__point:nth-child(8){ left:58%; opacity:.8; animation-duration:2.25s; animation-delay:.2s; }
+.sp-button__points .sp-button__point:nth-child(9){ left:98%; opacity:.6; animation-duration:2.6s; animation-delay:.1s; }
+.sp-button__points .sp-button__point:nth-child(10){ left:65%; opacity:1; animation-duration:2.5s; animation-delay:.2s; }
+.sp-button__inner { z-index:2; gap:6px; position:relative; width:100%; color:white; display:inline-flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; line-height:1.5; transition: color .2s ease-in-out; }
+.sp-button__inner .icon { width:18px; height:18px; transition: transform .25s ease, fill .1s linear; }
+.sp-button:hover .sp-button__inner .icon { animation: icon-wiggle .6s ease both; transform: translateY(-2px) scale(1.05); }
+@keyframes icon-wiggle { 0% { transform: translateY(0) rotate(0deg);} 30% { transform: translateY(-2px) rotate(-12deg);} 60% { transform: translateY(-2px) rotate(10deg);} 100% { transform: translateY(-2px) rotate(0deg);} }
+
